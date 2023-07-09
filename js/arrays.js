@@ -11,6 +11,11 @@ addButton.addEventListener('click',()=>{
   addTodo();
 });
 
+const keyDown = document.querySelector('.onKeyDown');
+keyDown.addEventListener('keydown',(e)=>{
+enterKey(e);
+})
+
 
 function addTodo(){
     const inputElement = document.querySelector('.jsAdd');
@@ -23,7 +28,12 @@ function addTodo(){
     });
     inputElement.value = '';
     renderTodo();
+}
 
+function enterKey(e){
+  if(e.key === 'Enter'){
+    addTodo();
+  }
 }
 function renderTodo(){
     let toDoList = '';
